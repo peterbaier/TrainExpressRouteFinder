@@ -31,6 +31,22 @@ public class Station {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Station station = (Station) o;
+
+        if (!name.equals(station.name)) return false;
+        return !(destinations != null ? !destinations.equals(station.destinations) : station.destinations != null);
+    }
+
+    @Override
+    public int hashCode() {
+        return name != null ? name.hashCode() : 0;
+    }
+
+    @Override
     public String toString() {
         return name;
     }
