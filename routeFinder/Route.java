@@ -1,16 +1,28 @@
 package routeFinder;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class Route {
     public static final Route EMPTY = new Route();
     private int totalTime;
-    private Set<Station> stops;
+    private List<Station> stops;
+
 
     public Route() {
         setTotalTime(0);
-        stops = new HashSet<>();
+        stops = new LinkedList<>();
+    }
+
+    public Route(Route r) {
+        this.totalTime = r.getTotalTime();
+        this.stops = r.getStops();
+    }
+
+    public void reset() {
+        this.totalTime = 0;
+        Station temp = this.stops.get(0);
+        this.stops.clear();
+        this.stops.add(temp);
     }
 
 
@@ -26,7 +38,7 @@ public class Route {
         totalTime += time;
     }
 
-    public Set<Station> getStops() {
+    public List<Station> getStops() {
         return stops;
     }
 
@@ -38,6 +50,7 @@ public class Route {
     @Override
     public String toString() {
         String printStops = "Route takes " + totalTime + " minutes from: \n";
+
         for (Station st : stops) {
             printStops += st.getName() + " ";
         }

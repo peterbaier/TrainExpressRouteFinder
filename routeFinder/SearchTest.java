@@ -12,7 +12,7 @@ public class SearchTest {
     @Test
     public void testGetFastestRouteAToB() {
 
-        Route fastestRoute = search.getFastestRoute(StationManager.A, StationManager.B, Route.EMPTY);
+        Route fastestRoute = search.search(StationManager.A, StationManager.B);
         System.out.println(fastestRoute.toString());
         Assert.assertEquals(3, fastestRoute.getTotalTime());
     }
@@ -21,7 +21,7 @@ public class SearchTest {
     @Test
     public void testGetFastestRouteAToC() {
 
-        Route fastestRoute = search.getFastestRoute(StationManager.A, StationManager.C, Route.EMPTY);
+        Route fastestRoute = search.search(StationManager.A, StationManager.C);
         System.out.println(fastestRoute.toString());
         Assert.assertEquals(10, fastestRoute.getTotalTime());
     }
@@ -29,7 +29,7 @@ public class SearchTest {
     @Test
     public void testGetFastestRouteAToD() {
 
-        Route fastestRoute = search.getFastestRoute(StationManager.A, StationManager.D, Route.EMPTY);
+        Route fastestRoute = search.search(StationManager.A, StationManager.D);
         System.out.println(fastestRoute.toString());
         Assert.assertEquals(6, fastestRoute.getTotalTime());
     }
@@ -37,7 +37,7 @@ public class SearchTest {
     @Test
     public void testGetFastestRouteAToE() {
 
-        Route fastestRoute = search.getFastestRoute(StationManager.A, StationManager.E, Route.EMPTY);
+        Route fastestRoute = search.search(StationManager.A, StationManager.E);
         System.out.println(fastestRoute.toString());
         Assert.assertEquals(13, fastestRoute.getTotalTime());
     }

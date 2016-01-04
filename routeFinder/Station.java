@@ -3,7 +3,6 @@ package routeFinder;
 import java.util.HashMap;
 import java.util.Map;
 
-
 public class Station {
 
     private String name;
@@ -14,7 +13,7 @@ public class Station {
         destinations = new HashMap<>();
     }
 
-    public Map getDestinations() {
+    public Map<Station, Integer> getDestinations() {
         return destinations;
     }
 
@@ -27,7 +26,7 @@ public class Station {
     }
 
     public int getTimeToStation(Station dest) {
-        return destinations.containsKey(dest) ? destinations.get(dest) : -1;
+        return destinations.containsKey(dest) ? destinations.get(dest) : 0;
     }
 
     @Override
@@ -39,6 +38,7 @@ public class Station {
 
         if (!name.equals(station.name)) return false;
         return !(destinations != null ? !destinations.equals(station.destinations) : station.destinations != null);
+
     }
 
     @Override
