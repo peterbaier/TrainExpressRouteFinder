@@ -31,6 +31,7 @@ public class Main extends Application {
         window.setTitle("Train Express - Route Finder");
         searchBtn = new Button("Search");
         display = new TextArea();
+        display.setEditable(false);
 
         boxFrom = new ComboBox<>();
         boxTo = new ComboBox<>();
@@ -42,8 +43,6 @@ public class Main extends Application {
         boxFrom.setPromptText("From:");
         boxTo.setPromptText("To:");
         searchBtn.setOnAction(e -> search());
-
-        boxFrom.setOnAction(e -> System.out.println("User selected " + boxFrom.getValue()));
 
         VBox layout = new VBox(10);
         layout.setPadding(new Insets(20, 20, 20, 20));
@@ -57,8 +56,8 @@ public class Main extends Application {
     private void search() {
         Search srch = new Search();
         Route route = srch.search(sm.getStations().get(boxFrom.getValue()), sm.getStations().get(boxTo.getValue()));
-        display.setText(route.toString());
-
+        if(route == Route.EMPTY)display.setText("You have selected the same Station! \nPlease select another one for destination!");
+        else display.setText(route.toString());
     }
 
 

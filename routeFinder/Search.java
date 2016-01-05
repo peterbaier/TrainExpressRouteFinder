@@ -30,14 +30,17 @@ public class Search {
     }
 
     public Route search(Station src, Station dest) {
-        getFastestRoute(src, dest, src, Route.EMPTY);
-        Route result = Route.EMPTY;
-        for (Route route : rlist) {
-            if (result == Route.EMPTY) result = route;
-            if (route.getStops().contains(dest) && route.getTotalTime() != 0 && route.getTotalTime() < result.getTotalTime())
-                result = route;
+        if(src != dest) {
+            getFastestRoute(src, dest, src, Route.EMPTY);
+            Route result = Route.EMPTY;
+            for (Route route : rlist) {
+                if (result == Route.EMPTY) result = route;
+                if (route.getStops().contains(dest) && route.getTotalTime() != 0 && route.getTotalTime() < result.getTotalTime())
+                    result = route;
+            }
+            return result;
         }
-        return result;
+        return Route.EMPTY;
     }
 
 
