@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -29,6 +30,8 @@ public class Main extends Application {
         sm = new StationManager();
         window = primaryStage;
         window.setTitle("Train Express - Route Finder");
+        Image icon = new Image(getClass().getResourceAsStream("/resource/trainIcon.png"));
+        window.getIcons().add(icon);
         searchBtn = new Button("Search");
         display = new TextArea();
         display.setEditable(false);
@@ -48,7 +51,7 @@ public class Main extends Application {
         layout.setPadding(new Insets(20, 20, 20, 20));
         layout.getChildren().addAll(boxFrom, boxTo, searchBtn, display);
 
-        scene = new Scene(layout, 300, 250);
+        scene = new Scene(layout, 350, 250);
         window.setScene(scene);
         window.show();
     }

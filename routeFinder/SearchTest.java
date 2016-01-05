@@ -42,6 +42,66 @@ public class SearchTest {
         Assert.assertEquals(13, fastestRoute.getTotalTime());
     }
 
+    @Test
+    public void testGetFastestRouteBToA() {
+
+        Route fastestRoute = search.search(StationManager.B, StationManager.A);
+        System.out.println(fastestRoute.toString());
+        Assert.assertEquals(3, fastestRoute.getTotalTime());
+    }
+
+
+    @Test
+    public void testGetFastestRouteCToA() {
+
+        Route fastestRoute = search.search(StationManager.C, StationManager.A);
+        System.out.println(fastestRoute.toString());
+        Assert.assertEquals(16, fastestRoute.getTotalTime());
+    }
+
+    @Test
+    public void testGetFastestRouteDToA() {
+
+        Route fastestRoute = search.search(StationManager.C, StationManager.A);
+        System.out.println(fastestRoute.toString());
+        Assert.assertEquals(8, fastestRoute.getTotalTime());
+    }
+
+
+    @Test
+    public void testGetFastestRouteEToA() {
+
+        Route fastestRoute = search.search(StationManager.E, StationManager.A);
+        System.out.println(fastestRoute.toString());
+        Assert.assertEquals(17, fastestRoute.getTotalTime());
+    }
+
+    @Test
+    public void testGetFastestRouteEToB() {
+
+        Route fastestRoute = search.search(StationManager.E, StationManager.B);
+        System.out.println(fastestRoute.toString());
+        Assert.assertEquals(14, fastestRoute.getTotalTime());
+    }
+
+    @Test
+    public void testGetFastestRouteEToC() {
+
+        Route fastestRoute = search.search(StationManager.E, StationManager.C);
+        System.out.println(fastestRoute.toString());
+        Assert.assertEquals(18, fastestRoute.getTotalTime());
+    }
+
+    @Test
+    public void testGetFastestRouteEToD() {
+
+        Route fastestRoute = search.search(StationManager.E, StationManager.D);
+        System.out.println(fastestRoute.toString());
+        Assert.assertEquals(9, fastestRoute.getTotalTime());
+    }
+
+
+
     @Before
     public void setUp() throws Exception {
         search = new Search();
