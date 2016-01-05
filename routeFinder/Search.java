@@ -5,9 +5,9 @@ import java.util.List;
 
 public class Search {
 
-    List<Route> rlist = new ArrayList<>();
+    private List<Route> rlist = new ArrayList<>();
 
-    public void getFastestRoute(Station src, Station dest, Station prev, Route temp) {
+    private void getFastestRoute(Station src, Station dest, Station prev, Route temp) {
 
         temp.add(src);
         temp.addTime(prev.getTimeToStation(src));

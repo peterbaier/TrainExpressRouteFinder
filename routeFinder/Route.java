@@ -20,9 +20,7 @@ public class Route {
 
     public void reset() {
         this.totalTime = 0;
-        Station temp = this.stops.get(0);
         this.stops.clear();
-        this.stops.add(temp);
     }
 
 
